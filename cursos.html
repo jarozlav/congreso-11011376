@@ -1,0 +1,126 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='Expires' content='0'>
+	<link href='/css/estructura.css' type='text/css' rel='stylesheet'/>
+        <title>Semana de Ingenierias</title>
+    </head>
+    <body >
+    {%
+    if cursos:
+    %}
+	<div class='wrap'>
+	    <nav>
+		<ul class='menu'>
+		    <li>
+			<a href='/index'>Inicio</a>
+		    </li>
+		    <li>
+			<a href='#'>Lista de opciones</a>
+			<ul>
+			    <li>
+				<a href=/cursos>Cursos</a>
+			    </li>
+			    <li>
+				<a href=/conferencias>Conferencias</a>
+			    </li>
+			</ul>
+		    </li>
+		    <li>
+			<a href='/'/>Cerrar sesion</a>
+		    </li>
+		</ul>
+		<div class='clearfix'></div>
+	    </nav>
+        </div>
+	<div class='logo'>
+	    <img src='/imagenes/logo.png' alt='logo' width='100' height='100'/>
+	</div>
+	<div class='portada'>
+	    <img src='/imagenes/portada.png' alt='logo' width='600' height='100'/>
+	</div>
+        <div class='encabezado'><h1>Bienvenido a la semana de ingenierias</h1></div>
+        <table class='info'>
+    {%
+        for curso in cursos:
+    %}
+            <tr>
+                <td class='text'>
+                    Nombre del curso:
+                </td>
+                <td class='data'>
+                    {{curso.nombre}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Nombre del instructor:
+                </td>
+                <td class='data'>
+                    {{curso.instructor}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Academia del curso:
+                </td>
+                <td class='data'>
+                    {{curso.academia}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Fecha de inicio:
+                </td>
+                <td class='data'>
+                    {{curso.fecha_inicio}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Fecha fin del curso:
+                </td>
+                <td class='data'>
+                    {{curso.fecha_fin}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Lugar:
+                </td>
+                <td class='data'>
+                    {{curso.lugar}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Hora del curso:
+                </td>
+                <td class='data'>
+                    {{curso.hora}}
+                </td>
+            </tr>
+            <tr>
+                <td class='text'>
+                    Precio:
+                </td>
+                <td class='data'>
+                    {{curso.precio}}
+                </td>
+            </tr>
+	    <tr>
+		<td class='salto'></td>
+		<td class='salto'></td>
+	    </tr>
+        {%endfor%}
+       </table>
+    {%
+    else:
+    %}
+	    <script type='text/javascript'>
+		window.location.href = "/index"
+	    </script>
+    {%endif%}
+    </body>
+</html>
